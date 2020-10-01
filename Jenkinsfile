@@ -1,4 +1,7 @@
-pipeline{       
+pipeline{  
+    environment {
+    registry = "shylajohn/docker-repo"
+    }
   agent any
   stages {
      
@@ -19,7 +22,7 @@ pipeline{
                    
                    //sh 'cp -r $WORKSPACE /usr/src/app/'
                    //sh 'cp -r pom.xml /usr/src/app/'
-                   sh 'mvn -f pom.xml clean package'
+                  // sh 'mvn -f pom.xml clean package'
                    sh 'docker build .'
                       }
        }
@@ -30,13 +33,15 @@ pipeline{
                registryCredential = 'dockerhub'
            }
            steps{
-               script {
-                   def appimage = docker.build registry + ":$BUILD_NUMBER"
-                   docker.withRegistry( '', registryCredential ) {
-                       appimage.push()
-                       appimage.push('latest')
-                   }
-               }
+              
+              script {
+                  //def appimage = docker.build registry + ":$BUILD_NUMBER"
+                  docker.withRegistry( '', registryCredential ) {
+                      def appimage = docker.build registry + ":$BUILD_NUMBER"
+                      appimage.push()
+                      //appimage.push('latest')
+                  }
+              }
            }
        }
        stage ('Deploy') {
@@ -49,5 +54,6 @@ pipeline{
        }
    }
 }
+
 
 
