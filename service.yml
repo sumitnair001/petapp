@@ -1,16 +1,15 @@
-community.kubernetes.k8s:
-state: present
-definition:
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: hello-svc
-  spec:
-    selector:
-      role: app
-    ports:
-      - protocol: TCP
-        port: 80
-        targetPort: 8080
-        nodePort: 32000
-    type: NodePort
+      state: present
+      definition:
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: hello-svc
+        spec:
+          selector:
+            role: app
+          ports:
+            - protocol: TCP
+              port: 80
+              targetPort: 8080
+              nodePort: 32000
+          type: NodePort
