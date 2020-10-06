@@ -1,7 +1,7 @@
 - hosts: all
   tasks:
   - name: Deploy the service
-    community.kubernetes.k8s_service:
+    k8s_service:
       state: present
       #  src: /home/ubuntu/shyla-pet/service.yml
       definition: "{{ lookup('file', '/home/ubuntu/shyla-pet/service.yml') | from_yaml }}"
