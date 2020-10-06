@@ -7,10 +7,10 @@
       definition: "{{ lookup('file', '/var/lib/jenkins/workspace/test/service.yml') | from_yaml }}"
       validate_certs: no
       namespace: default
-  - name: Deploy the application
-    community.kubernetes.k8s:
-      state: present
-      src: /var/lib/jenkins/workspace/test/deployment.yml
-      validate_certs: no
-      namespace: default
-      # definition: ""
+#   - name: Deploy the application
+#     community.kubernetes.k8s:
+#       state: present
+#       src: /var/lib/jenkins/workspace/test/deployment.yml
+#       validate_certs: no
+#       namespace: default
+#       # definition: ""
