@@ -2,14 +2,12 @@
   tasks:
   - name: Deploy the service
     community.kubernetes.k8s:
-    k8s:
       state: present
       definition: ""
       validate_certs: no
       namespace: default
   - name: Deploy the application
     community.kubernetes.k8s:
-    k8s:
       state: present
       validate_certs: no
       namespace: default
