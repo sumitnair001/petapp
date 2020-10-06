@@ -1,13 +1,11 @@
 - hosts: localhost
   tasks:
   - name: Deploy the service
-    community.kubernetes.k8s_service:
+    k8s_raw:
       state: present
-      #  src: /home/ubuntu/shyla-pet/service.yml
-      definition: "{{ lookup('file', '/var/lib/jenkins/workspace/test/service.yml') | from_yaml }}"
-      validate_certs: no
-      namespace: default
-#   - name: Deploy the application
+      src: /var/lib/jenkins/workspace/test/service.yml
+      #definition: "{{ lookup('file', '/var/lib/jenkins/workspace/test/service.yml') | from_yaml }}"
+      #   - name: Deploy the application
 #     community.kubernetes.k8s:
 #       state: present
 #       src: /var/lib/jenkins/workspace/test/deployment.yml
