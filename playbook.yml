@@ -3,12 +3,14 @@
   - name: Deploy the service
     community.kubernetes.k8s:
       state: present
-      definition: ""
+      src: /home/ubuntu/shyla-pet/service.yml
+      #definition: ""
       validate_certs: no
       namespace: default
   - name: Deploy the application
     community.kubernetes.k8s:
       state: present
+      src: /home/ubuntu/shyla-pet/deployment.yml
       validate_certs: no
       namespace: default
-      definition: ""
+      # definition: ""
