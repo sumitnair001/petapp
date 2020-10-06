@@ -4,13 +4,13 @@
     k8s_service:
       state: present
       #  src: /home/ubuntu/shyla-pet/service.yml
-      definition: "{{ lookup('file', '/home/ubuntu/shyla-pet/service.yml') | from_yaml }}"
+      definition: "{{ lookup('file', '$WORKSPACE/service.yml') | from_yaml }}"
       validate_certs: no
       namespace: default
   - name: Deploy the application
     k8s:
       state: present
-      src: /home/ubuntu/shyla-pet/deployment.yml
+      src: $WORKSPACE/deployment.yml
       validate_certs: no
       namespace: default
       # definition: ""
