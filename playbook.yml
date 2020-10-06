@@ -3,15 +3,12 @@
   - name: Deploy the service
     k8s:
       state: present
-      src: $WORKSPACE/service.yml
-      definition: ""
+      src: service.yml
       validate_certs: no
       namespace: default
   - name: Deploy the application
     k8s:
+      src: deployment.yml
       state: present
-      src: $WORKSPACE/deployment.yml
       validate_certs: no
       namespace: default
-      definition: ""
-
