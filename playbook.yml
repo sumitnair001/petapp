@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   tasks:
   - name: Deploy the service
     community.kubernetes.k8s_service:
