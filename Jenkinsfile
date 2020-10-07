@@ -49,7 +49,7 @@ pipeline{
                script{
                    def image_id = registry + ":$BUILD_NUMBER"
                    sh "sed -i 's|image_id|$image_id|g' deployment.yml"
-                   sh "ansible-playbook  playbook.yml --extra-vars \"image_id=${image_id}\""
+                   sh "ansible-playbook  playbook.yml"
                   //  sh "ansible-playbook  playbook.yml -i '/home/ubuntu/kubespray/inventory/mycluster/hosts.yaml' -e 'ansible_python_interpreter=/usr/bin/python3' --extra-vars \"image_id=${image_id}\""
 
                }
