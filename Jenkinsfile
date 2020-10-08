@@ -4,6 +4,15 @@ pipeline{
     }
   agent any
   stages {
+      
+      stage('install required packages') {
+          
+           steps {
+               sh "/usr/bin/python2.7 -m pip install --upgrade --user openshift"
+               sh "/usr/bin/python2.7 -m pip install Kubernetes"
+
+           }
+          }
      
            stage('Build') {
           
