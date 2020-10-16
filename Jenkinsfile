@@ -1,6 +1,6 @@
 pipeline{  
     environment {
-    registry = "shylajohn/docker-repo"
+    registry = "sumitnair89/ct-wordpress"
     }
   agent any
   stages {
